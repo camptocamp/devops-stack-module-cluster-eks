@@ -50,7 +50,7 @@ data "aws_iam_policy_document" "cluster_autoscaler" {
 module "iam_assumable_role_cluster_autoscaler" {
   count                         = var.enable_cluster_autoscaler ? 1 : 0
   source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version                       = "4.0.0"
+  version                       = "~> 5.0.0"
   create_role                   = true
   role_name                     = format("cluster-autoscaler-%s", var.cluster_name)
   provider_url                  = replace(module.cluster.cluster_oidc_issuer_url, "https://", "")
