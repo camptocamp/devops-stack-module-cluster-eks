@@ -11,7 +11,7 @@ data "aws_route53_zone" "this" {
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.cluster.cluster_id
+  name = module.cluster.cluster_name
 }
 
 locals {
@@ -21,8 +21,7 @@ locals {
 
 
 module "cluster" {
-  source  = "terraform-aws-modules/eks/aws"
-  version = "~>18.0"
+  version = "~> 19.0"
 
   cluster_name    = var.cluster_name
   cluster_version = var.kubernetes_version
