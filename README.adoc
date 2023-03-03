@@ -13,7 +13,7 @@ The following requirements are needed by this module:
 
 - [[requirement_terraform]] <<requirement_terraform,terraform>> (>= 0.13)
 
-- [[requirement_aws]] <<requirement_aws,aws>> (~> 3.37)
+- [[requirement_aws]] <<requirement_aws,aws>> (>= 3)
 
 - [[requirement_helm]] <<requirement_helm,helm>> (~> 2.0)
 
@@ -29,7 +29,7 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
-- [[provider_aws]] <<provider_aws,aws>> (~> 3.37)
+- [[provider_aws]] <<provider_aws,aws>> (>= 3)
 
 - [[provider_dns]] <<provider_dns,dns>>
 
@@ -308,7 +308,7 @@ Description: n/a
 |===
 |Name |Version
 |[[requirement_terraform]] <<requirement_terraform,terraform>> |>= 0.13
-|[[requirement_aws]] <<requirement_aws,aws>> |~> 3.37
+|[[requirement_aws]] <<requirement_aws,aws>> |>= 3
 |[[requirement_helm]] <<requirement_helm,helm>> |~> 2.0
 |[[requirement_kubernetes]] <<requirement_kubernetes,kubernetes>> |~> 2.0
 |[[requirement_local]] <<requirement_local,local>> |~> 2.0
@@ -321,7 +321,7 @@ Description: n/a
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[provider_aws]] <<provider_aws,aws>> |~> 3.37
+|[[provider_aws]] <<provider_aws,aws>> |>= 3
 |[[provider_dns]] <<provider_dns,dns>> |n/a
 |===
 
