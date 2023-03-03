@@ -1,5 +1,7 @@
+# TODO Add documentation here
+
 output "cluster_name" {
-  value = module.cluster.cluster_name
+  value = var.cluster_name
 }
 
 output "base_domain" {
