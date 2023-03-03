@@ -11,7 +11,7 @@ variable "base_domain" {
 variable "kubernetes_version" {
   description = "Kubernetes version to use for the EKS cluster."
   type        = string
-  default     = "1.24"
+  default     = "1.25"
 }
 
 variable "cluster_endpoint_public_access_cidrs" {

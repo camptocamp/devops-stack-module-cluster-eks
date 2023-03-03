@@ -1,3 +1,5 @@
+# TODO Consider moving auto-scaler configuration to its own module while only documenting that if you activate the autoscaler on the EKS module (this here) you'll need to add the autoscaler module you create
+
 resource "aws_iam_policy" "cluster_autoscaler" {
   count       = var.enable_cluster_autoscaler ? 1 : 0
   name_prefix = "cluster-autoscaler"
@@ -50,7 +52,7 @@ data "aws_iam_policy_document" "cluster_autoscaler" {
 module "iam_assumable_role_cluster_autoscaler" {
   count                         = var.enable_cluster_autoscaler ? 1 : 0
   source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version                       = "~> 5.0.0"
+  version                       = "~> 5.0"
   create_role                   = true
   role_name                     = format("cluster-autoscaler-%s", var.cluster_name)
   provider_url                  = replace(module.cluster.cluster_oidc_issuer_url, "https://", "")
