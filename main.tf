@@ -88,8 +88,6 @@ module "cluster" {
       ipv6_cidr_blocks = ["::/0"]
     }
   }
-
-  # TODO Add default tags and a variable to import tags and coalesce
 }
 
 # resource "aws_security_group_rule" "workers_ingress_healthcheck_https" {

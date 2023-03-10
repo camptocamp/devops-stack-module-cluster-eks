@@ -1,4 +1,5 @@
-# TODO Consider moving auto-scaler configuration to its own module while only documenting that if you activate the autoscaler on the EKS module (this here) you'll need to add the autoscaler module you create
+# TODO Consider moving auto-scaler configuration to its own module you'll need to add the autoscaler module you create.
+# I'll leave this code here for now, but it is not used in any production clusters.
 
 resource "aws_iam_policy" "cluster_autoscaler" {
   count       = var.enable_cluster_autoscaler ? 1 : 0
