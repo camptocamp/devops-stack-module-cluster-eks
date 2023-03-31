@@ -25,11 +25,6 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "vpc_cidr_block" {
-  description = ""
-  type        = string
-}
-
 variable "private_subnet_ids" {
   description = "List of IDs of private subnets that the EKS instances will be attached to."
   type        = list(string)
