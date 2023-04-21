@@ -224,7 +224,9 @@ Default: `[]`
 
 ==== [[input_extra_lb_target_groups]] <<input_extra_lb_target_groups,extra_lb_target_groups>>
 
-Description: Additional load-balancer target groups
+Description: Additional Target Groups to attach to Network LBs.
+
+A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
 
 Type: `list(any)`
 
@@ -455,7 +457,10 @@ This module needs a Route 53 zone matching this variable with permission to crea
 |no
 
 |[[input_extra_lb_target_groups]] <<input_extra_lb_target_groups,extra_lb_target_groups>>
-|Additional load-balancer target groups
+|Additional Target Groups to attach to Network LBs.
+
+A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
+
 |`list(any)`
 |`[]`
 |no
