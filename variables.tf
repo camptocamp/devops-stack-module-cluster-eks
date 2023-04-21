@@ -19,7 +19,7 @@ variable "kubernetes_version" {
 
     Please check the https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html[AWS EKS documentation] to find the available versions.
 
-    This variable can be changed on an existing cluster to update it. Note that this triggers an "instance refresh" on the nodes' auto scaling group, and so will recreate all pods running on the cluster.
+    This variable can be changed on an existing cluster to update it. *Note that this triggers an "instance refresh" on the nodes' auto scaling group, and so will recreate all pods running on the cluster*.
   EOT
   type        = string
   default     = "1.25"
