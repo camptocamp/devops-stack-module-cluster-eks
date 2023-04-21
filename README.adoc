@@ -108,7 +108,7 @@ The following input variables are required:
 
 ==== [[input_cluster_name]] <<input_cluster_name,cluster_name>>
 
-Description: n/a
+Description: Name of the EKS cluster. Must be unique in the AWS account.
 
 Type: `string`
 
@@ -176,7 +176,9 @@ Default: `[]`
 
 ==== [[input_base_domain]] <<input_base_domain,base_domain>>
 
-Description: The base domain used for Ingresses.
+Description: The base domain for the cluster.
+
+This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.apps.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
 
 Type: `string`
 
@@ -402,7 +404,10 @@ list(object({
 |no
 
 |[[input_base_domain]] <<input_base_domain,base_domain>>
-|The base domain used for Ingresses.
+|The base domain for the cluster.
+
+This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.apps.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
+
 |`string`
 |`null`
 |no
@@ -422,7 +427,7 @@ list(object({
 |no
 
 |[[input_cluster_name]] <<input_cluster_name,cluster_name>>
-|n/a
+|Name of the EKS cluster. Must be unique in the AWS account.
 |`string`
 |n/a
 |yes
