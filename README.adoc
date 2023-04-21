@@ -4,7 +4,7 @@ A https://devops-stack.io/[DevOps Stack] module to deploy a Kubernetes cluster o
 
 This module currently only supports https://docs.aws.amazon.com/eks/latest/userguide/worker.html[self-managed node groups] and not https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html[EKS managed nodes]. It uses the Terraform https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest[module "eks" by AWS] to manage the cluster itself.
 
-The `node_groups` variable is map of objects. Each value of the map creates a node_group referenced by its label. The value object can take any input accepted by the https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest/submodules/self-managed-node-group[self-managed-node-group] submodule.
+The `node_groups` variable is a map of objects. Each value of the map creates a node group referenced by its label. The value object can take any input accepted by the https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest/submodules/self-managed-node-group[self-managed-node-group] submodule.
 
 Here is an example that creates one node group with 3 instances of type `r5a.large`, attaches them to the main Load Balancer, and customizes the base EBS volume size to 100 GB:
 
