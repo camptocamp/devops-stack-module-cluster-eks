@@ -216,7 +216,9 @@ Default: `true`
 
 ==== [[input_extra_lb_http_tcp_listeners]] <<input_extra_lb_http_tcp_listeners,extra_lb_http_tcp_listeners>>
 
-Description: Additional load-balancer listeners
+Description: Additional Listeners to attach to Network LBs.
+
+A list of maps describing the HTTP listeners. Required key/values: `port`, `protocol`. Optional key/values: `target_group_index` (defaults to `http_tcp_listeners[count.index]`).
 
 Type: `list(any)`
 
@@ -451,7 +453,10 @@ This module needs a Route 53 zone matching this variable with permission to crea
 |no
 
 |[[input_extra_lb_http_tcp_listeners]] <<input_extra_lb_http_tcp_listeners,extra_lb_http_tcp_listeners>>
-|Additional load-balancer listeners
+|Additional Listeners to attach to Network LBs.
+
+A list of maps describing the HTTP listeners. Required key/values: `port`, `protocol`. Optional key/values: `target_group_index` (defaults to `http_tcp_listeners[count.index]`).
+
 |`list(any)`
 |`[]`
 |no
