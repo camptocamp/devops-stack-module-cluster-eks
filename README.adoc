@@ -46,21 +46,7 @@ The following requirements are needed by this module:
 
 - [[requirement_terraform]] <<requirement_terraform,terraform>> (>= 1.0)
 
-- [[requirement_argocd]] <<requirement_argocd,argocd>> (>= 4)
-
 - [[requirement_aws]] <<requirement_aws,aws>> (>= 4)
-
-- [[requirement_helm]] <<requirement_helm,helm>> (>= 2)
-
-- [[requirement_kubernetes]] <<requirement_kubernetes,kubernetes>> (>= 2)
-
-- [[requirement_local]] <<requirement_local,local>> (>= 2)
-
-- [[requirement_null]] <<requirement_null,null>> (>= 3)
-
-- [[requirement_random]] <<requirement_random,random>> (>= 3)
-
-- [[requirement_utils]] <<requirement_utils,utils>> (>= 1)
 
 === Providers
 
@@ -118,15 +104,9 @@ Description: List of IDs of private subnets that the EKS instances will be attac
 
 Type: `list(string)`
 
-==== [[input_vpc_cidr_block]] <<input_vpc_cidr_block,vpc_cidr_block>>
-
-Description: n/a
-
-Type: `string`
-
 ==== [[input_vpc_id]] <<input_vpc_id,vpc_id>>
 
-Description: VPC where the cluster and nodes will be deployed.
+Description: ID of the VPC where the cluster and nodes will be deployed.
 
 Type: `string`
 
@@ -136,7 +116,7 @@ The following input variables are optional (have default values):
 
 ==== [[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
 
-Description: Additional AWS account numbers to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+Description: Additional AWS account numbers to add to the aws-auth configmap.
 
 Type: `list(string)`
 
@@ -144,7 +124,7 @@ Default: `[]`
 
 ==== [[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
 
-Description: Additional IAM roles to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+Description: Additional IAM roles to add to the aws-auth configmap.
 
 Type:
 [source,hcl]
@@ -160,7 +140,7 @@ Default: `[]`
 
 ==== [[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
 
-Description: Additional IAM users to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+Description: Additional IAM users to add to the aws-auth configmap.
 
 Type:
 [source,hcl]
@@ -276,43 +256,43 @@ The following outputs are exported:
 
 ==== [[output_base_domain]] <<output_base_domain,base_domain>>
 
-Description: n/a
+Description: The base domain for the cluster.
 
 ==== [[output_cluster_name]] <<output_cluster_name,cluster_name>>
 
-Description: n/a
+Description: Name of the EKS cluster.
 
 ==== [[output_cluster_oidc_issuer_url]] <<output_cluster_oidc_issuer_url,cluster_oidc_issuer_url>>
 
-Description: The URL on the EKS cluster OIDC Issuer
+Description: The URL on the EKS cluster for the OpenID Connect identity provider
 
 ==== [[output_kubernetes]] <<output_kubernetes,kubernetes>>
 
-Description: n/a
+Description: Kubernetes API endpoint and CA certificate as a structured value.
 
 ==== [[output_kubernetes_cluster_ca_certificate]] <<output_kubernetes_cluster_ca_certificate,kubernetes_cluster_ca_certificate>>
 
-Description: n/a
+Description: Certificate data required to communicate with the cluster.
 
 ==== [[output_kubernetes_host]] <<output_kubernetes_host,kubernetes_host>>
 
-Description: n/a
+Description: Endpoint for your Kubernetes API server.
 
 ==== [[output_kubernetes_token]] <<output_kubernetes_token,kubernetes_token>>
 
-Description: n/a
+Description: Token to use to authenticate with the cluster.
 
 ==== [[output_nlb_target_groups]] <<output_nlb_target_groups,nlb_target_groups>>
 
-Description: n/a
+Description: List of ARNs of Network LBs (public and/or private if enabled).
 
 ==== [[output_node_groups]] <<output_node_groups,node_groups>>
 
-Description: Security group ID attached to the EKS nodes.
+Description: Map of attribute maps for all node groups created.
 
 ==== [[output_node_security_group_id]] <<output_node_security_group_id,node_security_group_id>>
 
-Description: n/a
+Description: ID of the node shared security group
 // END_TF_DOCS
 
 === Reference in table format 
@@ -327,14 +307,7 @@ Description: n/a
 |===
 |Name |Version
 |[[requirement_terraform]] <<requirement_terraform,terraform>> |>= 1.0
-|[[requirement_argocd]] <<requirement_argocd,argocd>> |>= 4
 |[[requirement_aws]] <<requirement_aws,aws>> |>= 4
-|[[requirement_helm]] <<requirement_helm,helm>> |>= 2
-|[[requirement_kubernetes]] <<requirement_kubernetes,kubernetes>> |>= 2
-|[[requirement_local]] <<requirement_local,local>> |>= 2
-|[[requirement_null]] <<requirement_null,null>> |>= 3
-|[[requirement_random]] <<requirement_random,random>> |>= 3
-|[[requirement_utils]] <<requirement_utils,utils>> |>= 1
 |===
 
 = Providers
@@ -374,13 +347,13 @@ Description: n/a
 |===
 |Name |Description |Type |Default |Required
 |[[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
-|Additional AWS account numbers to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+|Additional AWS account numbers to add to the aws-auth configmap.
 |`list(string)`
 |`[]`
 |no
 
 |[[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
-|Additional IAM roles to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+|Additional IAM roles to add to the aws-auth configmap.
 |
 
 [source]
@@ -396,7 +369,7 @@ list(object({
 |no
 
 |[[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
-|Additional IAM users to add to the aws-auth configmap. See examples/basic/variables.tf in the terraform-aws-eks module's code for example format.
+|Additional IAM users to add to the aws-auth configmap.
 |
 
 [source]
@@ -505,14 +478,8 @@ This variable can be changed on an existing cluster to update it. *Note that thi
 |`[]`
 |no
 
-|[[input_vpc_cidr_block]] <<input_vpc_cidr_block,vpc_cidr_block>>
-|n/a
-|`string`
-|n/a
-|yes
-
 |[[input_vpc_id]] <<input_vpc_id,vpc_id>>
-|VPC where the cluster and nodes will be deployed.
+|ID of the VPC where the cluster and nodes will be deployed.
 |`string`
 |n/a
 |yes
@@ -524,16 +491,16 @@ This variable can be changed on an existing cluster to update it. *Note that thi
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Description
-|[[output_base_domain]] <<output_base_domain,base_domain>> |n/a
-|[[output_cluster_name]] <<output_cluster_name,cluster_name>> |n/a
-|[[output_cluster_oidc_issuer_url]] <<output_cluster_oidc_issuer_url,cluster_oidc_issuer_url>> |The URL on the EKS cluster OIDC Issuer
-|[[output_kubernetes]] <<output_kubernetes,kubernetes>> |n/a
-|[[output_kubernetes_cluster_ca_certificate]] <<output_kubernetes_cluster_ca_certificate,kubernetes_cluster_ca_certificate>> |n/a
-|[[output_kubernetes_host]] <<output_kubernetes_host,kubernetes_host>> |n/a
-|[[output_kubernetes_token]] <<output_kubernetes_token,kubernetes_token>> |n/a
-|[[output_nlb_target_groups]] <<output_nlb_target_groups,nlb_target_groups>> |n/a
-|[[output_node_groups]] <<output_node_groups,node_groups>> |Security group ID attached to the EKS nodes.
-|[[output_node_security_group_id]] <<output_node_security_group_id,node_security_group_id>> |n/a
+|[[output_base_domain]] <<output_base_domain,base_domain>> |The base domain for the cluster.
+|[[output_cluster_name]] <<output_cluster_name,cluster_name>> |Name of the EKS cluster.
+|[[output_cluster_oidc_issuer_url]] <<output_cluster_oidc_issuer_url,cluster_oidc_issuer_url>> |The URL on the EKS cluster for the OpenID Connect identity provider
+|[[output_kubernetes]] <<output_kubernetes,kubernetes>> |Kubernetes API endpoint and CA certificate as a structured value.
+|[[output_kubernetes_cluster_ca_certificate]] <<output_kubernetes_cluster_ca_certificate,kubernetes_cluster_ca_certificate>> |Certificate data required to communicate with the cluster.
+|[[output_kubernetes_host]] <<output_kubernetes_host,kubernetes_host>> |Endpoint for your Kubernetes API server.
+|[[output_kubernetes_token]] <<output_kubernetes_token,kubernetes_token>> |Token to use to authenticate with the cluster.
+|[[output_nlb_target_groups]] <<output_nlb_target_groups,nlb_target_groups>> |List of ARNs of Network LBs (public and/or private if enabled).
+|[[output_node_groups]] <<output_node_groups,node_groups>> |Map of attribute maps for all node groups created.
+|[[output_node_security_group_id]] <<output_node_security_group_id,node_security_group_id>> |ID of the node shared security group
 |===
 // END_TF_TABLES
 ====
