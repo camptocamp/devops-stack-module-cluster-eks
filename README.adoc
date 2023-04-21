@@ -232,7 +232,11 @@ Default: `[]`
 
 ==== [[input_kubernetes_version]] <<input_kubernetes_version,kubernetes_version>>
 
-Description: Kubernetes version to use for the EKS cluster.
+Description: Kubernetes version for the EKS cluster.
+
+Please check the https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html[AWS EKS documentation] to find the available versions.
+
+This variable can be changed on an existing cluster to update it. *Note that this triggers an "instance refresh" on the nodes' auto scaling group, and so will recreate all pods running on the cluster*.
 
 Type: `string`
 
@@ -457,7 +461,12 @@ This module needs a Route 53 zone matching this variable with permission to crea
 |no
 
 |[[input_kubernetes_version]] <<input_kubernetes_version,kubernetes_version>>
-|Kubernetes version to use for the EKS cluster.
+|Kubernetes version for the EKS cluster.
+
+Please check the https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html[AWS EKS documentation] to find the available versions.
+
+This variable can be changed on an existing cluster to update it. *Note that this triggers an "instance refresh" on the nodes' auto scaling group, and so will recreate all pods running on the cluster*.
+
 |`string`
 |`"1.25"`
 |no
