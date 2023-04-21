@@ -111,7 +111,7 @@ variable "extra_lb_http_tcp_listeners" {
   description = <<-EOT
     Additional Listeners to attach to Network LBs.
 
-    A list of maps describing the HTTP listeners. Required key/values: port, protocol. Optional key/values: target_group_index (defaults to http_tcp_listeners[count.index])
+    A list of maps describing the HTTP listeners. Required key/values: `port`, `protocol`. Optional key/values: `target_group_index` (defaults to `http_tcp_listeners[count.index]`).
   EOT
   type        = list(any)
   default     = []
