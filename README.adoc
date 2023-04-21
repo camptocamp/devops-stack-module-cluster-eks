@@ -31,7 +31,7 @@ Here is an example that creates one node group with 3 instances of type `r5a.lar
 
 TIP: You can check out available instance types on the https://aws.amazon.com/ec2/instance-types[official AWS documentation pages].
 
-Depending on the `create_public_nlb` and `create_private_nlb` variales, it creates a public and/or public Network Load Balancer(s). The node groups that have the `target_group_arns = module.my_cluster.nlb_target_groups` value set will be added as backends of the LBs. By defautl, the LBs only forward traffic on the ports `80` and `443`, but you can customize this using the `extra_lb_target_groups` and `extra_lb_http_tcp_listeners` variable to add other ports. Look at the `lb.tf` file in this module for the syntax.
+Depending on the `create_public_nlb` and `create_private_nlb` variales, it creates a public and/or public Network Load Balancer(s). The node groups that have the `target_group_arns = module.my_cluster.nlb_target_groups` value set will be added as backends of the LBs. By default, the LBs only forward traffic on the ports `80` and `443`, but you can customize this using the `extra_lb_target_groups` and `extra_lb_http_tcp_listeners` variables to add other ports. Look at the `lb.tf` file in this module for the syntax.
 
 This module needs a Route53 zone in the same AWS account to create a wildcard CNAME record that points the the Network LB. The DNS zone must be passed in the `base_domain` variable. This record is used by other DevOps Stack modules as default urls for their applications.
 
