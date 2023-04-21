@@ -19,12 +19,12 @@ output "node_security_group_id" {
 }
 
 output "node_groups" {
-  description = "Map of attribute maps for all node groups created"
+  description = "Map of attribute maps for all node groups created."
   value       = module.cluster.self_managed_node_groups
 }
 
 output "kubernetes_host" {
-  description = "Endpoint for your Kubernetes API server"
+  description = "Endpoint for your Kubernetes API server."
   value       = module.cluster.cluster_endpoint
 }
 
@@ -39,7 +39,7 @@ output "kubernetes_token" {
 }
 
 output "nlb_target_groups" {
-  description = "List of ARNs of Network LBs (public and/or private if enabled)"
+  description = "List of ARNs of Network LBs (public and/or private if enabled)."
   value       = concat(module.nlb.target_group_arns, module.nlb_private.target_group_arns)
 }
 
