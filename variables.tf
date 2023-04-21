@@ -101,7 +101,7 @@ variable "extra_lb_target_groups" {
   description = <<-EOT
     Additional Target Groups to attach to Network LBs.
 
-    A list of maps containing key/value pairs that define the target groups. Required key/values: name, backend_protocol, backend_port
+    A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
   EOT
   type        = list(any)
   default     = []
