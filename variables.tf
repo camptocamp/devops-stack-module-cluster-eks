@@ -1,5 +1,5 @@
 variable "cluster_name" {
-  description = "Name of the EKS cluster. Must be unique in the AWS account"
+  description = "Name of the EKS cluster. Must be unique in the AWS account."
   type        = string
 }
 
