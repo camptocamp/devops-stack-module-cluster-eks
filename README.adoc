@@ -210,6 +210,20 @@ Type: `any`
 
 Default: `{}`
 
+==== [[input_use_self_managed_node_groups]] <<input_use_self_managed_node_groups,use_self_managed_node_groups>>
+
+Description: Whether to use self-managed node groups instead of EKS managed node groups.
+
+EKS managed node groups have the advantage of automatically draining the nodes when instances are being replaced.
+
+You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.
+
+Changing this on an existing cluster is not supported (possible with downtime and manual fixes to the load balancer target groups).
+
+Type: `bool`
+
+Default: `false`
+
 ==== [[input_create_public_nlb]] <<input_create_public_nlb,create_public_nlb>>
 
 Description: Whether to create an internet-facing NLB attached to the public subnets
@@ -450,6 +464,19 @@ list(object({
 |A map of node group configurations to be created.
 |`any`
 |`{}`
+|no
+
+|[[input_use_self_managed_node_groups]] <<input_use_self_managed_node_groups,use_self_managed_node_groups>>
+|Whether to use self-managed node groups instead of EKS managed node groups.
+
+EKS managed node groups have the advantage of automatically draining the nodes when instances are being replaced.
+
+You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.
+
+Changing this on an existing cluster is not supported (possible with downtime and manual fixes to the load balancer target groups).
+
+|`bool`
+|`false`
 |no
 
 |[[input_create_public_nlb]] <<input_create_public_nlb,create_public_nlb>>
