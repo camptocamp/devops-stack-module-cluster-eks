@@ -37,7 +37,7 @@ This module needs a Route 53 DNS zone in the same AWS account to create a wildca
 
 == Upgrading from versions earlier that 3.x
 
-The versions 2.x and earlier of this module created https://docs.aws.amazon.com/eks/latest/userguide/worker.html[self-managed node groups] exclusively. Upgradeing to versions 3.x or later requires setting the variable `use_self_managed_node_groups` to `true` to avoid breaking existing clusters.
+The versions 2.x and earlier of this module created https://docs.aws.amazon.com/eks/latest/userguide/worker.html[self-managed node groups] exclusively. Upgrading to versions 3.x or later requires setting the variable `use_self_managed_node_groups` to `true` to avoid breaking existing clusters.
 
 Switching an existing cluster to EKS managed node groups is possible, but requires manually draining the existing nodes after the new node group is created and before the old one is destroyed (by apply terraform in multiple steps using `-target `) as well as manually adding the new node group to the Load Balancer.
 
