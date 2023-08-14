@@ -35,7 +35,7 @@ Depending on the `create_public_nlb` and `create_private_nlb` variables, it crea
 
 This module needs a Route 53 DNS zone in the same AWS account to create a wildcard CNAME record that points to the Network LB. The DNS zone must be passed in the `base_domain` variable. This record is used by other DevOps Stack modules as default URLs for their applications.
 
-== Upgrading from versions earlier that 3.x
+== Upgrading from versions earlier than 3.x
 
 The versions 2.x and earlier of this module created https://docs.aws.amazon.com/eks/latest/userguide/worker.html[self-managed node groups] exclusively. Upgrading to versions 3.x or later requires setting the variable `use_self_managed_node_groups` to `true` to avoid breaking existing clusters.
 
