@@ -64,17 +64,17 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_nlb]] <<module_nlb,nlb>>
-
-Source: terraform-aws-modules/alb/aws
-
-Version: ~> 8.0
-
 ==== [[module_cluster]] <<module_cluster,cluster>>
 
 Source: terraform-aws-modules/eks/aws
 
 Version: ~> 19.0
+
+==== [[module_nlb]] <<module_nlb,nlb>>
+
+Source: terraform-aws-modules/alb/aws
+
+Version: ~> 8.0
 
 ==== [[module_nlb_private]] <<module_nlb_private,nlb_private>>
 
@@ -216,7 +216,7 @@ Description: Whether to use self-managed node groups instead of EKS managed node
 
 EKS managed node groups have the advantage of automatically draining the nodes when instances are being replaced.
 
-You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.
+**You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.**
 
 Changing this on an existing cluster is not supported (although it is possible with some downtime and manual fixes to the load balancer target groups).
 
@@ -342,9 +342,9 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |===
 
 = Resources
@@ -471,7 +471,7 @@ list(object({
 
 EKS managed node groups have the advantage of automatically draining the nodes when instances are being replaced.
 
-You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.
+**You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.**
 
 Changing this on an existing cluster is not supported (although it is possible with some downtime and manual fixes to the load balancer target groups).
 
