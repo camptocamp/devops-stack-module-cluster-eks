@@ -87,7 +87,7 @@ variable "use_self_managed_node_groups" {
 
     You should set this variable to `true` on clusters deployed with a module earlier than v3 because it created self-managed node groups exclusively.
 
-    Changing this on an existing cluster is not supported (possible with downtime and manual fixes to the load balancer target groups).
+    Changing this on an existing cluster is not supported (although it is possible with some downtime and manual fixes to the load balancer target groups).
   EOT
   type        = bool
   default     = false
