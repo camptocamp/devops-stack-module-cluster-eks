@@ -89,7 +89,7 @@ data "dns_a_record_set" "nlb" {
 
 locals {
   # List of Node_Groups names from the module configuration which have "nlbs_attachment = true" or undefined (true by default)
-  node_groups = [ for name,values in var.node_groups: name if lookup(values, "nlbs_attachment", false) ]
+  node_groups = [for name, values in var.node_groups : name if lookup(values, "nlbs_attachment", false)]
 
   # Map of "public" and/or "private" NLBs with their respective Target Groups ARNs
   nlbs_target_groups = merge(
@@ -98,12 +98,12 @@ locals {
   )
 
   # Map of all Autoscaling Groups created by EKS managed or Self managed Node Groups, referenced by the Node Group name
-  eks_managed_autoscaling_groups_by_node_group = { for item in setproduct(local.node_groups, module.cluster.eks_managed_node_groups_autoscaling_group_names): item[0] => item[1] if startswith(item[1], "eks-${item[0]}") }
-  self_managed_autoscaling_groups_by_node_group = { for item in setproduct(local.node_groups, module.cluster.self_managed_node_groups_autoscaling_group_names): item[0] => item[1] if startswith(item[1], item[0]) }
-  autoscaling_groups_by_node_group = merge( local.eks_managed_autoscaling_groups_by_node_group, local.self_managed_autoscaling_groups_by_node_group )
+  eks_managed_autoscaling_groups_by_node_group  = { for item in setproduct(local.node_groups, module.cluster.eks_managed_node_groups_autoscaling_group_names) : item[0] => item[1] if startswith(item[1], "eks-${item[0]}") }
+  self_managed_autoscaling_groups_by_node_group = { for item in setproduct(local.node_groups, module.cluster.self_managed_node_groups_autoscaling_group_names) : item[0] => item[1] if startswith(item[1], item[0]) }
+  autoscaling_groups_by_node_group              = merge(local.eks_managed_autoscaling_groups_by_node_group, local.self_managed_autoscaling_groups_by_node_group)
 
   # Map of all Autoscaling Groups to Target Groups attachments, with unique keys based only on data from module variables suitable for use in a for_each
-  autoscaling_attachments = { for item in setproduct(local.node_groups, keys(local.nlbs_target_groups), range(length(local.lb_target_groups))): "${item[0]}_${item[1]}_${local.lb_target_groups[item[2]].backend_port}" => { "autoscaling_group" = local.autoscaling_groups_by_node_group[item[0]], "target_group_arn" = local.nlbs_target_groups[item[1]][item[2]] } }
+  autoscaling_attachments = { for item in setproduct(local.node_groups, keys(local.nlbs_target_groups), range(length(local.lb_target_groups))) : "${item[0]}_${item[1]}_${local.lb_target_groups[item[2]].backend_port}" => { "autoscaling_group" = local.autoscaling_groups_by_node_group[item[0]], "target_group_arn" = local.nlbs_target_groups[item[1]][item[2]] } }
 }
 
 resource "aws_autoscaling_attachment" "node_groups_to_nlbs_target_groups" {
