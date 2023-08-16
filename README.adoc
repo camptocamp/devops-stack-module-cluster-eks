@@ -81,12 +81,6 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
-
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
@@ -99,10 +93,17 @@ Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
 
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 19.0
+
 === Resources
 
 The following resources are used by this module:
 
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment[aws_autoscaling_attachment.node_groups_to_nlbs_target_groups] (resource)
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record[aws_route53_record.wildcard] (resource)
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth[aws_eks_cluster_auth.cluster] (data source)
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region[aws_region.current] (data source)
@@ -359,9 +360,9 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |===
 
 = Resources
@@ -369,6 +370,7 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Type
+|https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment[aws_autoscaling_attachment.node_groups_to_nlbs_target_groups] |resource
 |https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record[aws_route53_record.wildcard] |resource
 |https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth[aws_eks_cluster_auth.cluster] |data source
 |https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region[aws_region.current] |data source
