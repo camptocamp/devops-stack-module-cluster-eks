@@ -53,7 +53,7 @@ The versions 2.x and earlier of this module created https://docs.aws.amazon.com/
 When going from self-managed node groups to EKS managed ones, note the following changes in node groups arguments:
 
 - The `instance_type` argument is replaced with `instance_types` and accepts a list of strings,
-- The `target_group_arns` arugment isn't supported anymore. Instead set `nlbs_attachment = true`.
+- The `target_group_arns` argument isn't supported anymore. Instead set `nlbs_attachment = true`.
 ====
 
 Switching an existing cluster to EKS managed node groups is possible, but requires manually draining the existing nodes after the new node group is created and before the old one is destroyed (by doing a `terraform apply -target <resource>` in multiple steps).
