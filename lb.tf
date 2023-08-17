@@ -88,7 +88,7 @@ data "dns_a_record_set" "nlb" {
 
 
 locals {
-  # List of node groups names from the module configuration which have "nlbs_attachment = true" or undefined (true by default)
+  # List of node groups names from the module configuration which have "nlbs_attachment = true"
   node_groups = [for name, values in var.node_groups : name if lookup(values, "nlbs_attachment", false)]
 
   # Map of "public" and/or "private" NLBs with their respective target group ARNs
