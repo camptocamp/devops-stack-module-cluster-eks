@@ -81,17 +81,17 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_nlb]] <<module_nlb,nlb>>
-
-Source: terraform-aws-modules/alb/aws
-
-Version: ~> 8.0
-
 ==== [[module_cluster]] <<module_cluster,cluster>>
 
 Source: terraform-aws-modules/eks/aws
 
 Version: ~> 19.0
+
+==== [[module_nlb]] <<module_nlb,nlb>>
+
+Source: terraform-aws-modules/alb/aws
+
+Version: ~> 8.0
 
 ==== [[module_nlb_private]] <<module_nlb_private,nlb_private>>
 
@@ -364,8 +364,8 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 |===
 |Name |Source |Version
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |===
 
 = Resources
