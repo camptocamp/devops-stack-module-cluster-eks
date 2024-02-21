@@ -17,7 +17,7 @@ variable "subdomain" {
   description = "The subdomain used for ingresses."
   type        = string
   default     = "apps"
-  nullable = false
+  nullable    = false
 }
 
 variable "kubernetes_version" {
