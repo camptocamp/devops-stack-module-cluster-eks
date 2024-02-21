@@ -20,7 +20,10 @@ output "node_security_group_id" {
 
 output "node_groups" {
   description = "Map of attribute maps for all node groups created."
-  value       = module.cluster.self_managed_node_groups
+  value       = merge(
+                  module.cluster.eks_managed_node_groups,
+                  module.cluster.self_managed_node_groups,
+                )
 }
 
 output "kubernetes_host" {
