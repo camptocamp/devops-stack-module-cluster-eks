@@ -81,6 +81,12 @@ The following providers are used by this module:
 
 The following Modules are called:
 
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 19.0
+
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
@@ -92,12 +98,6 @@ Version: ~> 8.0
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
-
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
 
 === Resources
 
