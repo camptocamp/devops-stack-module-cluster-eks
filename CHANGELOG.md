@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.0.1...v3.1.0) (2024-02-23)
+
+
+### Features
+
+* add a subdomain variable ([#23](https://github.com/camptocamp/devops-stack-module-cluster-eks/issues/23)) ([fb98345](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/fb98345f4126349948718dd07a8f04f0bcb761d1))
+
+
+### Bug Fixes
+
+* node_groups output value ([#24](https://github.com/camptocamp/devops-stack-module-cluster-eks/issues/24)) ([4b4228b](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/4b4228b20742ec3672c502909050bc1bba9cba49))
+
 ## [3.0.1](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.0.0...v3.0.1) (2023-11-02)
 
 
