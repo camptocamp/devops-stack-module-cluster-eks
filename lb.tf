@@ -74,7 +74,7 @@ resource "aws_route53_record" "wildcard" {
   count = var.base_domain != null && (var.create_public_nlb || var.create_private_nlb) ? 1 : 0
 
   zone_id = data.aws_route53_zone.this.0.id
-  name    = format("*.apps.%s", var.cluster_name)
+  name    = format("*.%s", trimprefix("${var.subdomain}.${var.cluster_name}", "."))
   type    = "CNAME"
   ttl     = "300"
   records = [

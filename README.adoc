@@ -81,6 +81,12 @@ The following providers are used by this module:
 
 The following Modules are called:
 
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 19.0
+
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
@@ -92,12 +98,6 @@ Version: ~> 8.0
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
-
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
 
 === Resources
 
@@ -141,11 +141,19 @@ The following input variables are optional (have default values):
 
 Description: The base domain for the cluster.
 
-This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.apps.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
+This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.<subdomain>.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
 
 Type: `string`
 
 Default: `null`
+
+==== [[input_subdomain]] <<input_subdomain,subdomain>>
+
+Description: The subdomain used for ingresses.
+
+Type: `string`
+
+Default: `"apps"`
 
 ==== [[input_kubernetes_version]] <<input_kubernetes_version,kubernetes_version>>
 
@@ -396,10 +404,16 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 |[[input_base_domain]] <<input_base_domain,base_domain>>
 |The base domain for the cluster.
 
-This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.apps.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
+This module needs a Route 53 zone matching this variable with permission to create DNS records. It will create a wildcard CNAME record `*.<subdomain>.<base_domain>` that points to an Elastic Load Balancer routing ingress traffic to all cluster nodes. Such urls will be used by default by other DevOps Stack modules for the applications they deploy (e.g. Argo CD, Prometheus, etc).
 
 |`string`
 |`null`
+|no
+
+|[[input_subdomain]] <<input_subdomain,subdomain>>
+|The subdomain used for ingresses.
+|`string`
+|`"apps"`
 |no
 
 |[[input_kubernetes_version]] <<input_kubernetes_version,kubernetes_version>>
