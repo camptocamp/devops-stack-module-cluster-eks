@@ -81,17 +81,17 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
-
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
+
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 19.0
 
 ==== [[module_nlb_private]] <<module_nlb_private,nlb_private>>
 
@@ -304,6 +304,10 @@ The following outputs are exported:
 ==== [[output_cluster_name]] <<output_cluster_name,cluster_name>>
 
 Description: Name of the EKS cluster.
+
+==== [[output_cluster_arn]] <<output_cluster_arn,cluster_arn>>
+
+Description: The Amazon Resource Name (ARN) of the cluster
 
 ==== [[output_base_domain]] <<output_base_domain,base_domain>>
 
@@ -562,6 +566,7 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 |===
 |Name |Description
 |[[output_cluster_name]] <<output_cluster_name,cluster_name>> |Name of the EKS cluster.
+|[[output_cluster_arn]] <<output_cluster_arn,cluster_arn>> |The Amazon Resource Name (ARN) of the cluster
 |[[output_base_domain]] <<output_base_domain,base_domain>> |The base domain for the cluster.
 |[[output_cluster_oidc_issuer_url]] <<output_cluster_oidc_issuer_url,cluster_oidc_issuer_url>> |The URL on the EKS cluster for the OpenID Connect identity provider
 |[[output_node_security_group_id]] <<output_node_security_group_id,node_security_group_id>> |ID of the node shared security group
