@@ -3,6 +3,11 @@ output "cluster_name" {
   value       = var.cluster_name
 }
 
+output "cluster_arn" {
+  description = "The Amazon Resource Name (ARN) of the cluster"
+  value       = module.cluster.cluster_arn
+}
+
 output "base_domain" {
   description = "The base domain for the cluster."
   value       = local.base_domain
