@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.1.0...v3.2.0) (2024-05-30)
+
+
+### Features
+
+* add cluster ARN as output ([#26](https://github.com/camptocamp/devops-stack-module-cluster-eks/issues/26)) ([ac23208](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/ac2320890483534e87a5d4bb2ac7b70ae3343f43))
+
 ## [3.1.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.0.1...v3.1.0) (2024-02-23)
 
 
