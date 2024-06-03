@@ -56,32 +56,6 @@ variable "public_subnet_ids" {
   default     = []
 }
 
-variable "aws_auth_accounts" {
-  description = "Additional AWS account numbers to add to the aws-auth configmap."
-  type        = list(string)
-  default     = []
-}
-
-variable "aws_auth_roles" {
-  description = "Additional IAM roles to add to the aws-auth configmap."
-  type = list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-  default = []
-}
-
-variable "aws_auth_users" {
-  description = "Additional IAM users to add to the aws-auth configmap."
-  type = list(object({
-    userarn  = string
-    username = string
-    groups   = list(string)
-  }))
-  default = []
-}
-
 variable "node_groups" {
   description = "A map of node group configurations to be created."
   type        = any
