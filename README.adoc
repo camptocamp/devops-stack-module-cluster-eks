@@ -81,6 +81,12 @@ The following providers are used by this module:
 
 The following Modules are called:
 
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 20.0
+
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
@@ -92,12 +98,6 @@ Version: ~> 8.0
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
-
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 20.0
 
 === Resources
 
@@ -188,46 +188,6 @@ Default:
 Description: List of IDs of public subnets the public NLB will be attached to if enabled with 'create_public_nlb'.
 
 Type: `list(string)`
-
-Default: `[]`
-
-==== [[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
-
-Description: Additional AWS account numbers to add to the aws-auth configmap.
-
-Type: `list(string)`
-
-Default: `[]`
-
-==== [[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
-
-Description: Additional IAM roles to add to the aws-auth configmap.
-
-Type:
-[source,hcl]
-----
-list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-Default: `[]`
-
-==== [[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
-
-Description: Additional IAM users to add to the aws-auth configmap.
-
-Type:
-[source,hcl]
-----
-list(object({
-    userarn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
 
 Default: `[]`
 
@@ -462,44 +422,6 @@ The value can be set and increased on an existing cluster to upgrade it. *Note t
 |[[input_public_subnet_ids]] <<input_public_subnet_ids,public_subnet_ids>>
 |List of IDs of public subnets the public NLB will be attached to if enabled with 'create_public_nlb'.
 |`list(string)`
-|`[]`
-|no
-
-|[[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
-|Additional AWS account numbers to add to the aws-auth configmap.
-|`list(string)`
-|`[]`
-|no
-
-|[[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
-|Additional IAM roles to add to the aws-auth configmap.
-|
-
-[source]
-----
-list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-|`[]`
-|no
-
-|[[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
-|Additional IAM users to add to the aws-auth configmap.
-|
-
-[source]
-----
-list(object({
-    userarn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
 |`[]`
 |no
 
