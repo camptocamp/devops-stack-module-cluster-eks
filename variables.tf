@@ -113,3 +113,9 @@ variable "extra_lb_http_tcp_listeners" {
   type        = list(any)
   default     = []
 }
+
+variable "tags" {
+  description = "Tags to apply to all resources created by the EKS Terraform module."
+  type        = map(string)
+  default     = {}
+}
