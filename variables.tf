@@ -113,3 +113,9 @@ variable "extra_lb_http_tcp_listeners" {
   type        = list(any)
   default     = []
 }
+
+variable "tags" {
+  description = "Tags to attach to the eks cluster"
+  type        = any
+  default     = {}
+}
