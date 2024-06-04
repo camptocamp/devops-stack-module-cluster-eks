@@ -85,4 +85,5 @@ module "cluster" {
       ipv6_cidr_blocks = ["::/0"]
     }
   }
+  tags = var.tags
 }
