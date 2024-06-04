@@ -81,17 +81,17 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 20.0
-
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
+
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 20.0
 
 ==== [[module_nlb_private]] <<module_nlb_private,nlb_private>>
 
@@ -256,6 +256,14 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 Type: `list(any)`
 
 Default: `[]`
+
+==== [[input_tags]] <<input_tags,tags>>
+
+Description: Tags to attach to the eks cluster
+
+Type: `any`
+
+Default: `{}`
 
 === Outputs
 
@@ -478,6 +486,12 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 
 |`list(any)`
 |`[]`
+|no
+
+|[[input_tags]] <<input_tags,tags>>
+|Tags to attach to the eks cluster
+|`any`
+|`{}`
 |no
 
 |===
