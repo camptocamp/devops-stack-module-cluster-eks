@@ -63,7 +63,7 @@ output "nlb_zone_id" {
 }
 
 output "nlb_target_groups" {
-  description = "List of ARNs of Network LBs (public and/or private if enabled)."
+  description = "List of the target groups ARNs (public and/or private if enabled)."
   value       = concat(module.nlb.target_group_arns, module.nlb_private.target_group_arns)
 }
 
