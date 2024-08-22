@@ -46,6 +46,22 @@ output "kubernetes_token" {
   value       = data.aws_eks_cluster_auth.cluster.token
 }
 
+output "nlb_dns_name" {
+  description = "Map of the DNS names of the load balancers (public and/or private if enabled). Returns `null` if the respective load balancer is disabled."
+  value = {
+    public  = module.nlb.lb_dns_name
+    private = module.nlb_private.lb_dns_name
+  }
+}
+
+output "nlb_zone_id" {
+  description = "Map of the zone_id of the load balancer to assist with creating DNS records (public and/or private if enabled). Returns `null` if the respective load balancer is disabled."
+  value = {
+    public  = module.nlb.lb_zone_id
+    private = module.nlb_private.lb_zone_id
+  }
+}
+
 output "nlb_target_groups" {
   description = "List of ARNs of Network LBs (public and/or private if enabled)."
   value       = concat(module.nlb.target_group_arns, module.nlb_private.target_group_arns)
