@@ -81,12 +81,6 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
-
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
@@ -98,6 +92,12 @@ Version: ~> 8.0
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
+
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 19.0
 
 === Resources
 
@@ -339,11 +339,11 @@ Description: Token to use to authenticate with the cluster.
 
 ==== [[output_nlb_dns_name]] <<output_nlb_dns_name,nlb_dns_name>>
 
-Description: Map of the DNS name of the load balancer (public and/or private if enabled).
+Description: Map of the DNS names of the load balancers (public and/or private if enabled). Returns `null` if the respective load balancer is disabled.
 
 ==== [[output_nlb_zone_id]] <<output_nlb_zone_id,nlb_zone_id>>
 
-Description: Map of the zone_id of the load balancer to assist with creating DNS records (public and/or private if enabled).
+Description: Map of the zone_id of the load balancer to assist with creating DNS records (public and/or private if enabled). Returns `null` if the respective load balancer is disabled.
 
 ==== [[output_nlb_target_groups]] <<output_nlb_target_groups,nlb_target_groups>>
 
@@ -582,8 +582,8 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 |[[output_kubernetes_host]] <<output_kubernetes_host,kubernetes_host>> |Endpoint for your Kubernetes API server.
 |[[output_kubernetes_cluster_ca_certificate]] <<output_kubernetes_cluster_ca_certificate,kubernetes_cluster_ca_certificate>> |Certificate data required to communicate with the cluster.
 |[[output_kubernetes_token]] <<output_kubernetes_token,kubernetes_token>> |Token to use to authenticate with the cluster.
-|[[output_nlb_dns_name]] <<output_nlb_dns_name,nlb_dns_name>> |Map of the DNS name of the load balancer (public and/or private if enabled).
-|[[output_nlb_zone_id]] <<output_nlb_zone_id,nlb_zone_id>> |Map of the zone_id of the load balancer to assist with creating DNS records (public and/or private if enabled).
+|[[output_nlb_dns_name]] <<output_nlb_dns_name,nlb_dns_name>> |Map of the DNS names of the load balancers (public and/or private if enabled). Returns `null` if the respective load balancer is disabled.
+|[[output_nlb_zone_id]] <<output_nlb_zone_id,nlb_zone_id>> |Map of the zone_id of the load balancer to assist with creating DNS records (public and/or private if enabled). Returns `null` if the respective load balancer is disabled.
 |[[output_nlb_target_groups]] <<output_nlb_target_groups,nlb_target_groups>> |List of the target groups ARNs (public and/or private if enabled).
 |[[output_kubernetes]] <<output_kubernetes,kubernetes>> |Kubernetes API endpoint and CA certificate as a structured value.
 |===
