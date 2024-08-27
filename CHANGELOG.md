@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.2.0...v3.3.0) (2024-08-27)
+
+
+### Features
+
+* add outputs nlb dns ([#29](https://github.com/camptocamp/devops-stack-module-cluster-eks/issues/29)) ([c64b795](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/c64b795c6379ea46bb0d43fa3397825c9d8a9657))
+
 ## [3.2.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.1.0...v3.2.0) (2024-05-30)
 
 
