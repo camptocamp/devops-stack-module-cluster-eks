@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.3.0...v4.0.0) (2024-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove deprecated parameters
+
+### Features
+
+* add variable to put tags on resources ([7d4164f](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/7d4164f7c116782a69b1faa318e7300d56e45dc9))
+* update eks module ([4b7c11e](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/4b7c11ee6a82ddcac106ef0ca328a2d685721048))
+
+
+### Bug Fixes
+
+* remove deprecated parameters ([dc2eff9](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/dc2eff942192ad926ad8b8e05eb29f3e2646e5ac))
+
 ## [3.3.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.2.0...v3.3.0) (2024-08-27)
 
 
