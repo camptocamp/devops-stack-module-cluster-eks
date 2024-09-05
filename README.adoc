@@ -73,13 +73,19 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
-- [[provider_aws]] <<provider_aws,aws>> (>= 4)
-
 - [[provider_dns]] <<provider_dns,dns>>
+
+- [[provider_aws]] <<provider_aws,aws>> (>= 4)
 
 === Modules
 
 The following Modules are called:
+
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 20.0
 
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
@@ -92,12 +98,6 @@ Version: ~> 8.0
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
-
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 19.0
 
 === Resources
 
@@ -191,46 +191,6 @@ Type: `list(string)`
 
 Default: `[]`
 
-==== [[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
-
-Description: Additional AWS account numbers to add to the aws-auth configmap.
-
-Type: `list(string)`
-
-Default: `[]`
-
-==== [[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
-
-Description: Additional IAM roles to add to the aws-auth configmap.
-
-Type:
-[source,hcl]
-----
-list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-Default: `[]`
-
-==== [[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
-
-Description: Additional IAM users to add to the aws-auth configmap.
-
-Type:
-[source,hcl]
-----
-list(object({
-    userarn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-Default: `[]`
-
 ==== [[input_node_groups]] <<input_node_groups,node_groups>>
 
 Description: A map of node group configurations to be created.
@@ -296,6 +256,14 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 Type: `list(any)`
 
 Default: `[]`
+
+==== [[input_tags]] <<input_tags,tags>>
+
+Description: Tags to apply to all resources created by the EKS Terraform module.
+
+Type: `map(string)`
+
+Default: `{}`
 
 === Outputs
 
@@ -383,9 +351,9 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 19.0
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
 |===
 
 = Resources
@@ -473,44 +441,6 @@ The value can be set and increased on an existing cluster to upgrade it. *Note t
 |`[]`
 |no
 
-|[[input_aws_auth_accounts]] <<input_aws_auth_accounts,aws_auth_accounts>>
-|Additional AWS account numbers to add to the aws-auth configmap.
-|`list(string)`
-|`[]`
-|no
-
-|[[input_aws_auth_roles]] <<input_aws_auth_roles,aws_auth_roles>>
-|Additional IAM roles to add to the aws-auth configmap.
-|
-
-[source]
-----
-list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-|`[]`
-|no
-
-|[[input_aws_auth_users]] <<input_aws_auth_users,aws_auth_users>>
-|Additional IAM users to add to the aws-auth configmap.
-|
-
-[source]
-----
-list(object({
-    userarn  = string
-    username = string
-    groups   = list(string)
-  }))
-----
-
-|`[]`
-|no
-
 |[[input_node_groups]] <<input_node_groups,node_groups>>
 |A map of node group configurations to be created.
 |`any`
@@ -564,6 +494,12 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 
 |`list(any)`
 |`[]`
+|no
+
+|[[input_tags]] <<input_tags,tags>>
+|Tags to apply to all resources created by the EKS Terraform module.
+|`map(string)`
+|`{}`
 |no
 
 |===
