@@ -73,9 +73,9 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
-- [[provider_dns]] <<provider_dns,dns>>
-
 - [[provider_aws]] <<provider_aws,aws>> (>= 4)
+
+- [[provider_dns]] <<provider_dns,dns>>
 
 === Modules
 
@@ -265,6 +265,22 @@ Type: `map(string)`
 
 Default: `{}`
 
+==== [[input_cluster_enabled_log_types]] <<input_cluster_enabled_log_types,cluster_enabled_log_types>>
+
+Description: A list of the desired control plane logs to enable.
+
+Type: `list(string)`
+
+Default:
+[source,json]
+----
+[
+  "audit",
+  "api",
+  "authenticator"
+]
+----
+
 === Outputs
 
 The following outputs are exported:
@@ -351,9 +367,9 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
 |===
 
 = Resources
@@ -500,6 +516,22 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 |Tags to apply to all resources created by the EKS Terraform module.
 |`map(string)`
 |`{}`
+|no
+
+|[[input_cluster_enabled_log_types]] <<input_cluster_enabled_log_types,cluster_enabled_log_types>>
+|A list of the desired control plane logs to enable.
+|`list(string)`
+|
+
+[source]
+----
+[
+  "audit",
+  "api",
+  "authenticator"
+]
+----
+
 |no
 
 |===
