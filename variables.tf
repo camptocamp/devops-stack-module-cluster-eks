@@ -119,3 +119,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "cluster_enabled_log_types" {
+  description = "A list of the desired control plane logs to enable."
+  type        = list(string)
+  default     = ["audit", "api", "authenticator"]
+}
