@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.0.0...v4.1.0) (2024-09-19)
+
+
+### Features
+
+* add cluster_enabled_log_types variable ([13803cb](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/13803cb96f12e45df98aa156befb071fffc002dc))
+
 ## [4.0.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v3.3.0...v4.0.0) (2024-09-05)
 
 
