@@ -30,6 +30,8 @@ module "cluster" {
   # variable to always be true.
   enable_cluster_creator_admin_permissions = true
 
+  # Extra API users with administrator access to the EKS cluster.
+  access_entries = var.access_entries
 
   vpc_id      = var.vpc_id
   subnet_ids  = var.private_subnet_ids
@@ -93,5 +95,6 @@ module "cluster" {
       ipv6_cidr_blocks = ["::/0"]
     }
   }
+
   tags = var.tags
 }
