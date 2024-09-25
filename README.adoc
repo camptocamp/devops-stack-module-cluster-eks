@@ -281,6 +281,14 @@ Default:
 ]
 ----
 
+==== [[input_access_entries]] <<input_access_entries,access_entries>>
+
+Description: Map of access entries to add to the cluster. The type of the variable is `any` similarly to the upstream EKS module. Please check the https://github.com/terraform-aws-modules/terraform-aws-eks[their README] for more information and examples.
+
+Type: `any`
+
+Default: `{}`
+
 === Outputs
 
 The following outputs are exported:
@@ -532,6 +540,12 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 ]
 ----
 
+|no
+
+|[[input_access_entries]] <<input_access_entries,access_entries>>
+|Map of access entries to add to the cluster. The type of the variable is `any` similarly to the upstream EKS module. Please check the https://github.com/terraform-aws-modules/terraform-aws-eks[their README] for more information and examples.
+|`any`
+|`{}`
 |no
 
 |===
