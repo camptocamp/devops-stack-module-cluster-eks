@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.2.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.1.0...v4.2.0) (2024-10-10)
+
+
+### Features
+
+* add variable to add other principals to access the cluster ([d10dde9](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/d10dde957c29a49c89b3961457dd97a562a5f621))
+
+
+### Bug Fixes
+
+* enable administrator access to the cluster creator ([bd42ad6](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/bd42ad60187f34457db4cb32203beb43064eade8))
+
 ## [4.1.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.0.0...v4.1.0) (2024-09-19)
 
 
