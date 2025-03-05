@@ -16,7 +16,7 @@ locals {
     },
   ]
 
-  lb_target_groups = concat(local.lb_target_groups_default, var.extra_lb_target_groups)
+  lb_target_groups = coalesce(var.lb_target_groups, local.lb_target_groups_default)
 
   lb_http_tcp_listeners_default = [
     {
