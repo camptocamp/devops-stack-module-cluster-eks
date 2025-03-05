@@ -94,14 +94,19 @@ variable "nlb_attached_node_groups" {
   default     = []
 }
 
-variable "extra_lb_target_groups" {
+variable "lb_target_groups" {
   description = <<-EOT
-    Additional Target Groups to attach to Network LBs.
+    Target Groups to attach to Network LBs (overrides the default target groups).
 
-    A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
+    A list of maps containing key/value pairs that define the target groups.
   EOT
-  type        = list(any)
-  default     = []
+  type = list(object({
+    name_prefix      = string
+    backend_protocol = string
+    backend_port     = number
+    target_type      = optional(string)
+  }))
+  default = null
 }
 
 variable "extra_lb_http_tcp_listeners" {
