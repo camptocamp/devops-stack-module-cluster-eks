@@ -58,9 +58,9 @@ When going from self-managed node groups to EKS managed ones, note the following
 
 Switching an existing cluster to EKS managed node groups is possible, but requires manually draining the existing nodes after the new node group is created and before the old one is destroyed (by doing a `terraform apply -target <resource>` in multiple steps).
 
-== Managing addons
+== Managing add-ons
 
-You can use the `cluster_addons` variable to manage EKS addons on the cluster. The key of the map can be the addon name or set with the `name` attribute. The value is a map of the addon configuration. Here is a minimum example:
+You can use the `cluster_addons` variable to manage EKS add-ons on the cluster. The key of the map can be the add-on name or set with the `name` attribute. The value is a map of the add-on configuration. Here is a minimum example:
 
 [source.hcl]
 ----
@@ -97,11 +97,9 @@ module "cluster_green" {
 }
 ----
 
-TIP: Be careful when using the pod identity agent, it binds the port 80 on the hosts so its not available anymore.
+TIP: Be careful when using the pod identity agent, it binds the port 80 on the hosts so it is not available anymore.
 
-Check the  https://github.com/terraform-aws-modules/terraform-aws-eks?tab=readme-ov-file#input_cluster_addons[upstream module documentation] for more information. And the https://docs.aws.amazon.com/eks/latest/userguide/workloads-add-ons-available-eks.html[AWS EKS documentation] for the list of available addons.
-
-
+Check the  https://github.com/terraform-aws-modules/terraform-aws-eks?tab=readme-ov-file#input_cluster_addons[upstream module documentation] for more information. And the https://docs.aws.amazon.com/eks/latest/userguide/workloads-add-ons-available-eks.html[AWS EKS documentation] for the list of available add-ons.
 
 == Technical Reference
 
