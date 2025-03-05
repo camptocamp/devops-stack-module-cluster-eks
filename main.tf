@@ -33,6 +33,8 @@ module "cluster" {
   # Extra API users with administrator access to the EKS cluster.
   access_entries = var.access_entries
 
+  cluster_addons = var.cluster_addons
+
   vpc_id      = var.vpc_id
   subnet_ids  = var.private_subnet_ids
   enable_irsa = true
