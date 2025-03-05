@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.2.0...v5.0.0) (2025-03-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* add lb_target_groups variable to be able to override them
+
+### Features
+
+* add cluster_addons input variable ([4c56cc8](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/4c56cc8b8e19cdbce721a41f1dd2b656e5c1cdd0))
+* add lb_target_groups variable to be able to override them ([3ee0739](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/3ee0739bf2774d25d28b255a03e0e16d5d7f6696))
+
 ## [4.2.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.1.0...v4.2.0) (2024-10-10)
 
 
