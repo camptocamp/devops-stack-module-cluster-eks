@@ -417,8 +417,8 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
-|[[provider_aws]] <<provider_aws,aws>> |>= 4
 |[[provider_dns]] <<provider_dns,dns>> |n/a
+|[[provider_aws]] <<provider_aws,aws>> |>= 4
 |===
 
 = Modules
@@ -426,8 +426,8 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
-|[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
+|[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
 |===
 
