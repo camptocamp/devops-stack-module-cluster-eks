@@ -58,6 +58,51 @@ When going from self-managed node groups to EKS managed ones, note the following
 
 Switching an existing cluster to EKS managed node groups is possible, but requires manually draining the existing nodes after the new node group is created and before the old one is destroyed (by doing a `terraform apply -target <resource>` in multiple steps).
 
+== Managing addons
+
+You can use the `cluster_addons` variable to manage EKS addons on the cluster. The key of the map can be the addon name or set with the `name` attribute. The value is a map of the addon configuration. Here is a minimum example:
+
+[source.hcl]
+----
+data "aws_iam_policy" "cni" {
+  name = "AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_role" "vpc_cni" {
+  name               = "vpc-cni-role"
+  assume_role_policy = data.aws_iam_policy_document.pod_identity_association.json
+}
+
+resource "aws_iam_role_policy_attachment" "vpc_cni" {
+  role       = aws_iam_role.vpc_cni.name
+  policy_arn = data.aws_iam_policy.cni.arn
+}
+
+module "cluster_green" {
+  source = "git::https://github.com/camptocamp/devops-stack-module-cluster-eks.git?ref=v4.x.x"
+
+  [...]
+
+  cluster_addons = {
+    coredns                = {}
+    eks-pod-identity-agent = {}
+    kube-proxy             = {}
+    vpc-cni = {
+      pod_identity_association = [{
+        role_arn        = aws_iam_role.vpc_cni.arn
+        service_account = "aws-node"
+      }]
+    }
+  }
+}
+----
+
+TIP: Be careful when using the pod identity agent, it binds the port 80 on the hosts so its not available anymore.
+
+Check the  https://github.com/terraform-aws-modules/terraform-aws-eks?tab=readme-ov-file#input_cluster_addons[upstream module documentation] for more information. And the https://docs.aws.amazon.com/eks/latest/userguide/workloads-add-ons-available-eks.html[AWS EKS documentation] for the list of available addons.
+
+
+
 == Technical Reference
 
 // BEGIN_TF_DOCS
@@ -346,7 +391,7 @@ Description: List of the target groups ARNs (public and/or private if enabled).
 Description: Kubernetes API endpoint and CA certificate as a structured value.
 // END_TF_DOCS
 
-=== Reference in table format 
+=== Reference in table format
 
 .Show tables
 [%collapsible]

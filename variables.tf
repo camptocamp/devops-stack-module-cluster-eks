@@ -131,3 +131,9 @@ variable "access_entries" {
   type        = any
   default     = {}
 }
+
+variable "cluster_addons" {
+  description = "Map of cluster add-on configurations to enable for the cluster. Add-on name can be the map keys or set with `name`."
+  type        = any
+  default     = {}
+}
