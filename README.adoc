@@ -334,6 +334,14 @@ Type: `any`
 
 Default: `{}`
 
+==== [[input_cluster_addons]] <<input_cluster_addons,cluster_addons>>
+
+Description: Map of cluster add-on configurations to enable for the cluster. Add-on name can be the map keys or set with `name`.
+
+Type: `any`
+
+Default: `{}`
+
 === Outputs
 
 The following outputs are exported:
@@ -420,8 +428,8 @@ Description: Kubernetes API endpoint and CA certificate as a structured value.
 [cols="a,a,a",options="header,autowidth"]
 |===
 |Name |Source |Version
-|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
 |[[module_nlb]] <<module_nlb,nlb>> |terraform-aws-modules/alb/aws |~> 8.0
+|[[module_cluster]] <<module_cluster,cluster>> |terraform-aws-modules/eks/aws |~> 20.0
 |[[module_nlb_private]] <<module_nlb_private,nlb_private>> |terraform-aws-modules/alb/aws |~> 8.0
 |===
 
@@ -589,6 +597,12 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 
 |[[input_access_entries]] <<input_access_entries,access_entries>>
 |Map of access entries to add to the cluster. The type of the variable is `any` similarly to the upstream EKS module. Please check the https://github.com/terraform-aws-modules/terraform-aws-eks[their README] for more information and examples.
+|`any`
+|`{}`
+|no
+
+|[[input_cluster_addons]] <<input_cluster_addons,cluster_addons>>
+|Map of cluster add-on configurations to enable for the cluster. Add-on name can be the map keys or set with `name`.
 |`any`
 |`{}`
 |no
