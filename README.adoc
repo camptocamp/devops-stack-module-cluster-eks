@@ -124,17 +124,17 @@ The following providers are used by this module:
 
 The following Modules are called:
 
-==== [[module_cluster]] <<module_cluster,cluster>>
-
-Source: terraform-aws-modules/eks/aws
-
-Version: ~> 20.0
-
 ==== [[module_nlb]] <<module_nlb,nlb>>
 
 Source: terraform-aws-modules/alb/aws
 
 Version: ~> 8.0
+
+==== [[module_cluster]] <<module_cluster,cluster>>
+
+Source: terraform-aws-modules/eks/aws
+
+Version: ~> 20.0
 
 ==== [[module_nlb_private]] <<module_nlb_private,nlb_private>>
 
@@ -280,15 +280,24 @@ Type: `list(any)`
 
 Default: `[]`
 
-==== [[input_extra_lb_target_groups]] <<input_extra_lb_target_groups,extra_lb_target_groups>>
+==== [[input_lb_target_groups]] <<input_lb_target_groups,lb_target_groups>>
 
-Description: Additional Target Groups to attach to Network LBs.
+Description: Target Groups to attach to Network LBs (overrides the default target groups).
 
-A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
+A list of maps containing key/value pairs that define the target groups.
 
-Type: `list(any)`
+Type:
+[source,hcl]
+----
+list(object({
+    name_prefix      = string
+    backend_protocol = string
+    backend_port     = number
+    target_type      = optional(string)
+  }))
+----
 
-Default: `[]`
+Default: `null`
 
 ==== [[input_extra_lb_http_tcp_listeners]] <<input_extra_lb_http_tcp_listeners,extra_lb_http_tcp_listeners>>
 
@@ -553,13 +562,24 @@ Changing this on an existing cluster is not supported (although it is possible w
 |`[]`
 |no
 
-|[[input_extra_lb_target_groups]] <<input_extra_lb_target_groups,extra_lb_target_groups>>
-|Additional Target Groups to attach to Network LBs.
+|[[input_lb_target_groups]] <<input_lb_target_groups,lb_target_groups>>
+|Target Groups to attach to Network LBs (overrides the default target groups).
 
-A list of maps containing key/value pairs that define the target groups. Required key/values: `name`, `backend_protocol`, `backend_port`.
+A list of maps containing key/value pairs that define the target groups.
 
-|`list(any)`
-|`[]`
+|
+
+[source]
+----
+list(object({
+    name_prefix      = string
+    backend_protocol = string
+    backend_port     = number
+    target_type      = optional(string)
+  }))
+----
+
+|`null`
 |no
 
 |[[input_extra_lb_http_tcp_listeners]] <<input_extra_lb_http_tcp_listeners,extra_lb_http_tcp_listeners>>
