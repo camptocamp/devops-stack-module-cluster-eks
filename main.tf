@@ -25,10 +25,7 @@ module "cluster" {
 
   cluster_enabled_log_types = var.cluster_enabled_log_types
 
-  # The creator of the cluster tipically is the Terraform API user. This user is then used to also install the bootstrap
-  # Argo CD through Helm, so it needs to access the Kubernetes cluster directly. As such, we hardcode the following
-  # variable to always be true.
-  enable_cluster_creator_admin_permissions = true
+  enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
 
   # Extra API users with administrator access to the EKS cluster.
   access_entries = var.access_entries
