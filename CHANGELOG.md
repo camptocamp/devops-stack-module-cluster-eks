@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v5.0.0...v5.1.0) (2025-09-18)
+
+
+### Features
+
+* add enable_cluster_creator_admin_permissions variable ([#39](https://github.com/camptocamp/devops-stack-module-cluster-eks/issues/39)) ([8e330da](https://github.com/camptocamp/devops-stack-module-cluster-eks/commit/8e330da119779d30d867368d7f4e735bce967c72))
+
 ## [5.0.0](https://github.com/camptocamp/devops-stack-module-cluster-eks/compare/v4.2.0...v5.0.0) (2025-03-05)
 
 
