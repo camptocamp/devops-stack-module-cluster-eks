@@ -131,6 +131,12 @@ variable "cluster_enabled_log_types" {
   default     = ["audit", "api", "authenticator"]
 }
 
+variable "enable_cluster_creator_admin_permissions" {
+  description = "Add the current caller identity (tipycally the Terraform API user) as a cluster administrator via access entry. This is needed to also install the bootstrap Argo CD through Helm. Default to `true`. Set to `false` to manage all access entries with the `access_entries` argument."
+  type        = bool
+  default     = true
+}
+
 variable "access_entries" {
   description = "Map of access entries to add to the cluster. The type of the variable is `any` similarly to the upstream EKS module. Please check the https://github.com/terraform-aws-modules/terraform-aws-eks[their README] for more information and examples."
   type        = any

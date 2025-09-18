@@ -333,6 +333,14 @@ Default:
 ]
 ----
 
+==== [[input_enable_cluster_creator_admin_permissions]] <<input_enable_cluster_creator_admin_permissions,enable_cluster_creator_admin_permissions>>
+
+Description: Add the current caller identity (tipycally the Terraform API user) as a cluster administrator via access entry. This is needed to also install the bootstrap Argo CD through Helm. Default to `true`. Set to `false` to manage all access entries with the `access_entries` argument.
+
+Type: `bool`
+
+Default: `true`
+
 ==== [[input_access_entries]] <<input_access_entries,access_entries>>
 
 Description: Map of access entries to add to the cluster. The type of the variable is `any` similarly to the upstream EKS module. Please check the https://github.com/terraform-aws-modules/terraform-aws-eks[their README] for more information and examples.
@@ -611,6 +619,12 @@ A list of maps describing the HTTP listeners. Required key/values: `port`, `prot
 ]
 ----
 
+|no
+
+|[[input_enable_cluster_creator_admin_permissions]] <<input_enable_cluster_creator_admin_permissions,enable_cluster_creator_admin_permissions>>
+|Add the current caller identity (tipycally the Terraform API user) as a cluster administrator via access entry. This is needed to also install the bootstrap Argo CD through Helm. Default to `true`. Set to `false` to manage all access entries with the `access_entries` argument.
+|`bool`
+|`true`
 |no
 
 |[[input_access_entries]] <<input_access_entries,access_entries>>
